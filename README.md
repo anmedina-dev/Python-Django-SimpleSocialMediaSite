@@ -8,7 +8,7 @@ Intructions to run
 2. In command prompt, change directory to the "datasite" folder
 3. Then run server by entering "python manage.py runserver" in Command Prompt
 4. In your browser, go to localhost:8000
-5.(Optional) localhost:8000/admin will bring up the admin page
+5. (Optional) localhost:8000/admin will bring up the admin page
 
 Existing Users
 ------------------
