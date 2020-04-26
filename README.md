@@ -12,14 +12,14 @@ Intructions to run
 
 Existing Users
 ------------------
-Username(Admin): adminUser\n
-Password: Helloworld123
+Username(Admin): adminUser <br />
+Password: Helloworld123 <br />
 
-Username(Admin):TestDummy
-Password: notpassword
+Username(Admin):TestDummy <br />
+Password: notpassword <br />
 
-Username: beanBagBaby
-Password: djangoguy
+Username: beanBagBaby <br />
+Password: djangoguy <br />
 
-Username: TestUser
-Password: dellcomputers
+Username: TestUser <br />
+Password: dellcomputers <br />
