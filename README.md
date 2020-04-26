@@ -12,7 +12,7 @@ Intructions to run
 
 Existing Users
 ------------------
-Username(Admin): adminUser
+Username(Admin): adminUser\n
 Password: Helloworld123
 
 Username(Admin):TestDummy
