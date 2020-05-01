@@ -13,7 +13,7 @@ from django.contrib.auth.models import User
 # Create your views here.
 def home(request):
     context = {
-        #Post.objects.all() is a daatabase query to get all the posts
+        #Post.objects.all() is a database query to get all the posts
         'posts': Post.objects.all()
     }
     #the context is the posts from the database
