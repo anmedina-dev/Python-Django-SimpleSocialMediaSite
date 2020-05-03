@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
+    'chat',
     'data.apps.DataConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
@@ -133,3 +135,15 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 #After login, gets redirected to home page
 LOGIN_REDIRECT_URL = 'blog-home'
 LOGIN_URL = 'login'
+
+# mysite/settings.py
+# Channels
+ASGI_APPLICATION = 'datasite.routing.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}

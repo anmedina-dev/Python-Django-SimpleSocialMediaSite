@@ -1,6 +1,6 @@
 {% extends "blog/base.html" %}
 {% block content %}
-    <h1 class="mb-3">{{ view.kwargs.username }}'s Posts! ({{ page_obj.paginator.count }})</h1>
+    <h1 class="mb-3">{{ view.kwargs.username }}'s Stocks! ({{ page_obj.paginator.count }})</h1>
     {% for stock in stocks %}
     <article class="media content-section">
         <img class="rounded-circle article-img" src="{{ stock.owner.profile.image.url }}">

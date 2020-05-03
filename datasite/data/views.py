@@ -11,6 +11,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 import yfinance as yf
 import numpy as np
 import pandas as pd
+import platform
+import matplotlib.pyplot as plt
 
 # Create your views here.
 def index(request):
@@ -31,12 +33,17 @@ class StockListView(ListView):
 class StockDetailView(DetailView):
     model = Stock
 
-#posts from a specific user
+#stocks from a specific user
 class UserStockListView(ListView):
     model = Stock
     template_name = 'data/user_stocks.html'
     context_object_name = 'stocks'
     paginate_by = 5
+
+    def testingFunc(self):
+        stock = self.getobject()
+        tickerTest = stock.ticker
+        print(tickerTest)
 
     def get_queryset(self):
         user = get_object_or_404(User, username=self.kwargs.get('username'))
