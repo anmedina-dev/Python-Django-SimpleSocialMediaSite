@@ -1,6 +1,8 @@
-# django-blog
+# django-finance-site
 
-Need Python installed and added to PATH before trying to start the application
+Requirements
+------------------
+1. Python installed
 
 Intructions to run
 ------------------
