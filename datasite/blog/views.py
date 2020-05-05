@@ -3,18 +3,19 @@ from django.views.generic import (ListView,
                                 CreateView,
                                 UpdateView,
                                 DeleteView)
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 #getting the model from the models fils in this directory and importing a model
 from .models import Post
 from django.contrib.auth.models import User
-
+from friendship.models import Friend, Follow, Block
 
 # Create your views here.
 def home(request):
     context = {
         #Post.objects.all() is a database query to get all the posts
-        'posts': Post.objects.all()
+        'posts': Post.objects.all(),
+        'friends': Friend.objects.friends(request.user)
     }
     #the context is the posts from the database
     return render(request, 'blog/home.html', context)
@@ -81,3 +82,6 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 def about(request):
     #the blog/about.html is in the templates/blog
     return render(request, 'blog/about.html', {'title': 'Blog about'})
+
+def change_friends(request, operation, pk):
+    return redirect('')

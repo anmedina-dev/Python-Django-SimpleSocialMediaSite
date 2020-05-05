@@ -19,9 +19,11 @@ from users import views as user_views
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import url
 
 
 urlpatterns = [
+    url(r'^friendship/', include('friendship.urls')),
     path('chat/', include('chat.urls')),
     path('admin/', admin.site.urls),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),

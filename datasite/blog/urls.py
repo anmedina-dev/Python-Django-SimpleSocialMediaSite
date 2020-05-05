@@ -5,7 +5,8 @@ from .views import (PostListView,
                     PostCreateView,
                     PostUpdateView,
                     PostDeleteView,
-                    UserPostListView)
+                    UserPostListView,
+                    change_friends)
 
 urlpatterns = [
     path('', PostListView.as_view(), name='blog-home'),

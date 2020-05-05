@@ -61,20 +61,20 @@
             {% block content %}{% endblock %}
           </div>
 
-          <!--
+          {% load friendshiptags %}
           <div class="col-md-4">
             <div class="content-section">
-              <h3>Our Sidebar</h3>
-              <p class='text-muted'>You can put any information here you'd like.
+              <h3>Friend Sidebar</h3>
+              <p class='text-muted'>
                 <ul class="list-group">
-                  <li class="list-group-item list-group-item-light">Latest Posts</li>
-                  <li class="list-group-item list-group-item-light">Announcements</li>
-                  <li class="list-group-item list-group-item-light">Calendars</li>
-                  <li class="list-group-item list-group-item-light">etc</li>
+                {% friends request.user %}
+                {% for friend in friends %}
+                  <li class="list-group-item list-group-item-light">{{user.username}}</li>
+                {% endfor %}
                 </ul>
               </p>
             </div>
-          </div>-->
+          </div>
         </div>
       </main>
 
