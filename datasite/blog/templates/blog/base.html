@@ -20,7 +20,7 @@
     <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-back-color fixed-top">
           <div class="container">
-            <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Django Blog</a>
+            <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Django Finance</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -34,6 +34,10 @@
               <div class="navbar-nav">
                 <!--Some code to tell if the user is logged in or not-->
                 {% if user.is_authenticated %}
+                  <form action="{% url 'user-search' %}" method="GET" accept-charset="utf-8">
+                    <input class="form-control mr-sm-2"  name="search" type="search" placeholder="Search User">
+                  </form>
+
                   <a class="nav-item nav-link" href="{% url 'post-create' %}">Create Post</a>
                   <a class="nav-item nav-link" href="{% url 'stock-create' %}">Add Stock</a>
                   <a class="nav-item nav-link" href="{% url 'profile' %}">{{ user.username }} <img class="rounded-circle account-nav-img" src="{{ user.profile.image.url }}"></a>

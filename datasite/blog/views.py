@@ -10,6 +10,31 @@ from .models import Post
 from django.contrib.auth.models import User
 from friendship.models import Friend, Follow, Block
 
+import operator
+
+from django.db.models import Q
+
+
+class UserSearchListView(ListView):
+    """
+    Display a User List page filtered by the search query.
+    """
+    model = User
+    paginate_by = 10
+    template_name = 'blog/user_search.html'
+    context_object_name = 'users'
+
+    def get_queryset(self):
+        result = super(UserSearchListView, self).get_queryset()
+        query = self.request.GET.get('search')
+        if query:
+            postresult = User.objects.filter(username=query)
+            result = postresult
+        else:
+            result = None
+        return result
+        
+
 # Create your views here.
 def home(request):
     context = {
@@ -82,6 +107,3 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 def about(request):
     #the blog/about.html is in the templates/blog
     return render(request, 'blog/about.html', {'title': 'Blog about'})
-
-def change_friends(request, operation, pk):
-    return redirect('')

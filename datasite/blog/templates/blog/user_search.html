@@ -1,16 +1,13 @@
 {% extends "blog/base.html" %}
 {% block content %}
-  <h1 class="mb-2">Stocks being bought</h1>
-    {% for stock in stocks %}
+    <h1 class="mb-3">Search Results</h1>
+    {% for user in users %}
     <article class="media content-section">
-        <img class="rounded-circle article-img" src="{{ stock.owner.profile.image.url }}">
+        <img class="rounded-circle article-img" src="{{ user.profile.image.url }}">
         <div class="media-body">
           <div class="article-metadata">
-            <a class="mr-2" href="{% url 'user-stocks' stock.owner.username %}">{{ stock.owner }}</a>
-            <small class="text-muted">{{ stock.date_entered|date:"F d, Y" }}</small>
+            <a class="mr-2" href="{% url 'user-posts' user.username %}">{{ user.username }}</a>
           </div>
-          <h2><a class="article-title" href="{% url 'stock-detail' stock.id %}">{{ stock.ticker }}</a></h2>
-          <p class="article-content">{{ stock.amount }}</p>
         </div>
       </article>
     {% endfor %}
