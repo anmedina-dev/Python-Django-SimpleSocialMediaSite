@@ -1,4 +1,4 @@
-# django-finance-site
+# Python-Django-SimpleSocialMediaSite
 
 Requirements
 ------------------
